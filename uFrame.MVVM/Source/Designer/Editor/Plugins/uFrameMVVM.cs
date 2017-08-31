@@ -39,6 +39,7 @@ namespace uFrame.MVVM
         static uFrameMVVM()
         {
             InvertApplication.CacheTypeAssembly(typeof(uFrameMVVM).Assembly);
+            // FIXME: Unity 2017.2 allows custom assembly definitions
             foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies().Where(p => p.FullName.StartsWith("Assembly"))) {
                 InvertApplication.CacheTypeAssembly(assembly);
             }
