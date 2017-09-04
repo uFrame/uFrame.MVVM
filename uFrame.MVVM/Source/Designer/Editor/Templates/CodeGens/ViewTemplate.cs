@@ -217,7 +217,7 @@ namespace uFrame.MVVM.Templates
             var variableName = Ctx.Data.Name.ToLower();
             Ctx._("var {0} = (({1})model)", variableName, Ctx.Data.Element.Name.AsViewModel());
 
-            foreach (var property in Ctx.Data.Element.LocalProperties)
+            foreach (var property in Ctx.Data.Element.Properties)
             {
                 if (property.RelatedTypeNode is StateMachineNode) continue;
                 // Make sure derived views don't duplicate in initialize vm
