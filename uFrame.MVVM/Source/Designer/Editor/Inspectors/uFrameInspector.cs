@@ -62,7 +62,7 @@ namespace uFrame.MVVM.Editor
 
         protected void GetFieldInformation(ViewBase t)
         {
-            _fieldInfos = t.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic);
+            _fieldInfos = t.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy);
             _toggleGroups = new Dictionary<string, FieldInfo>();
             _groupFields = new Dictionary<string, List<FieldInfo>>();
             foreach (var fieldInfo in _fieldInfos)
