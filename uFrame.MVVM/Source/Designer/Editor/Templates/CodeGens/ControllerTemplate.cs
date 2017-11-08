@@ -73,12 +73,13 @@ namespace uFrame.MVVM.Templates
         public string NameAsViewModel { get { return Ctx.Data.Name.AsViewModel(); } }
 
         [GenerateProperty, WithField]
-        public IViewModelManager _Name_ViewModelManager
+        public IViewModelManager<_ITEMNAME_VIEWMODEL2> _Name_ViewModelManager
         {
-            get
+            get 
             {
                 Ctx.SetType(typeof(IViewModelManager)); // I force this so it doesn't change it
                 Ctx.CurrentProperty.Type.TypeArguments.Add(NameAsViewModel);
+                Ctx.TryAddNamespace(typeof(IViewModelManager).Namespace);
                 Ctx.CurrentProperty.CustomAttributes.Add(new CodeAttributeDeclaration(typeof(InjectAttribute).ToCodeReference(), new CodeAttributeArgument(new CodePrimitiveExpression(Ctx.Data.Name))));
                 return null;
             }

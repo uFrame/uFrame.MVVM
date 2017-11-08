@@ -5,6 +5,9 @@ using uFrame.Editor.Unity;
 using uFrame.Kernel;
 using UnityEditor;
 using UnityEngine;
+#if !(NETFX_CORE || NET_4_6)
+using UniRx;
+#endif
 
 namespace uFrame.MVVM.Editor {
     [CustomEditor(typeof(uFrameKernel), true)]
